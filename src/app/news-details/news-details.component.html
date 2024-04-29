@@ -1,0 +1,16 @@
+<div *ngIf="newsData" class="container mt-4 mb-4">
+    <div class="card">
+      <img src="assets/images/{{ newsData.image }}" class="card-img-top news-image" alt="{{ newsData.title }}">
+      <div class="card-body">
+        <h2 class="card-title">{{ newsData.title }}</h2>
+        <p class="card-text">{{ newsData.content }}</p>
+        <div class="card-text">
+          <p class="text-muted">Publication Date: {{ newsData.publicationDate | date }}</p>
+          <p class="text-muted">Creation Date: {{ newsData.creationDate | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  

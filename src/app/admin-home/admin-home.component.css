@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+  }
+  
+  .list-group-item {
+    border-color: #dee2e6;
+  }
+  
+  .list-group-item:hover {
+    background-color: #e9ecef;
+  }
+  

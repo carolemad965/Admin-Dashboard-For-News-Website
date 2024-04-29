@@ -1,0 +1,39 @@
+<article class="col-md-12">
+    <!-- Modern - Bootstrap Cards -->
+    <header>
+        <h2>See News</h2>
+    </header>
+    <!-- BLOG CARDS -->
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                   
+                    <th>Publication Date</th>
+                    <th>Creation Date</th>
+                    <th>Description</th>
+                    <th>Action</th> <!-- New column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let news of newsList">
+                    <td>
+                        <a [routerLink]="'/news-details/' + news.id" routerLinkActive="active">{{ news.title }}</a>
+                    </td>
+                  
+                    <td>{{ news.publicationDate }}</td>
+                    <td>{{ news.creationDate }}</td>
+                    <td>{{ news.content }}</td>
+                    <td>
+                        <!-- Delete button -->
+                        <button type="button" class="btn btn-danger" click="">Delete</button>
+                        <!-- Update button -->
+                        <button type="button" class="btn btn-primary" click="">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>

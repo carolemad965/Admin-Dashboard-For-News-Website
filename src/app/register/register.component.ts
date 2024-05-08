@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {RegisterService} from '../Services/Account/register.service'
 
 @Component({
   selector: 'app-register',
@@ -16,20 +17,25 @@ export class RegisterComponent {
     password: '',
     confirmPassword: '',
     email: '',
-    isAdmin:false
+    isAdmin:true
   };
-  constructor(private http: HttpClient,private router: Router){}
+  constructor(private http: HttpClient,private router: Router,private registerService:RegisterService){}
   onSubmit(){
-    console.log(this.userData)
-    this.http.post<any>('https://localhost:44374/api/Account/register',this.userData).subscribe({
-      next:( (response)=>{
+    this.registerService.postData(this.userData).subscribe({
+      next:((response:any)=>{
+        console.log(response)
         if(response.isPass){
           this.router.navigate(['/login']);
         }
-      }
-
-      ),
-      error:((err)=>{console.log(err)})
-    })
+      }),
+      error:((err:any)=>{
+        console.log("error:"+err)
+        this.router.navigate(['/register']);
+      })
+     })
+  
+    }
   }
-}
+
+
+

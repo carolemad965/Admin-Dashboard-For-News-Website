@@ -1,0 +1,28 @@
+<!-- author-home.component.html -->
+
+<div class="container">
+    <h2>Authors</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Num</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authorData; let counter = index">
+          <td>{{ counter+1 }}</td>
+          <td>{{ author.name }}</td>
+          <td>{{ author.description }}</td>
+
+          <td>
+            <button class="btn btn-danger" (click)="deleteAuthor(author.id)">Delete</button>
+            <button class="btn btn-primary" (click)="updateAuthor(author.id)">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
